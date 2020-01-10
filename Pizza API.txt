@@ -1,0 +1,22 @@
+- Pizza API -
+
+Base: /api/v1
+
+POST	/auth						Login
+
+GET		/orders						List all active orders
+
+GET		/orders/:id					Get a specific order
+PATCH 								Edit a specific order
+DELETE 								Delete a specific order#
+
+PUT 	/orders/:id/items			Create an item for an order
+
+GET 	/orders/:id/items/:itemID	Get a specific item
+PATCH								Edit a specific item
+DELETE 								Delete a specific item
+
+GET 	/coupons 					List all coupons
+PUT									Create a new coupon
+
+DELETE 	/coupons/:id				Delete a coupon
