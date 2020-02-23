@@ -4,11 +4,7 @@
 -->
 <template>
     <div class="home">
-        HOME!
-
-        <apos-button @click="onLogout">Logout</apos-button>
-	    
-	    <router-link to="/bla">Bla</router-link>
+        <apos-button @click="onLogout" :is-filled="true">Logout</apos-button>
     </div>
 </template>
 
