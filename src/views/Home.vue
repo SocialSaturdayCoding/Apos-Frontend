@@ -5,21 +5,20 @@
 <template>
     <div class="home">
         HOME!
-	    
-	    <apos-button></apos-button>
+
+        <apos-button @click="onLogout">Logout</apos-button>
 	    
 	    <router-link to="/bla">Bla</router-link>
     </div>
 </template>
 
 <script>
-	import Button from 'components/Button'
-	
+    import AposButton from "components/AposButton";
     export default {
         name: 'Home',
 	    
 	    components: {
-        	'AposButton': Button
+            AposButton
 	    },
         
         data() {
@@ -33,12 +32,14 @@
         },
         
         methods: {
-        
+            onLogout() {
+                console.log("Logout")
+            }
         }
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     .home {
     
     }
