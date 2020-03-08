@@ -4,17 +4,20 @@
 -->
 <template>
     <div class="home">
+        <apos-input input-hint="Testinput"></apos-input>
         <apos-button @click="onLogout" :is-filled="true">Logout</apos-button>
     </div>
 </template>
 
 <script>
     import AposButton from "components/AposButton";
+    import AposInput from "components/AposInput";
     export default {
         name: 'Home',
 	    
 	    components: {
-            AposButton
+            AposButton,
+            AposInput
 	    },
         
         data() {
