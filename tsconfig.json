@@ -1,0 +1,22 @@
+{
+	"compileOnSave": false,
+	"buildOnSave": false,
+	"compilerOptions": {
+		"target": "es6",
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"baseUrl": "./src",
+		"paths": {
+			"@lib/*": ["lib/*"],
+			"@data/*": ["data/*"]
+		},
+		"types": ["node"],
+		"lib": [
+			"es2017",
+			"dom"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
