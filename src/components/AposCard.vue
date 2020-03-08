@@ -16,7 +16,7 @@
         name: "AposCard",
 
         props: {
-            CardTitle: String
+            cardTitle: String
         },
     }
 </script>

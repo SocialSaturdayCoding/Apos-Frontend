@@ -49,6 +49,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "src/colors.scss";
+    @import "src/colors";
 
 </style>
