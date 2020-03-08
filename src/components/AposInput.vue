@@ -29,8 +29,8 @@
         },
 
         props: {
-            InputHint: String,
-            Id: {
+            inputHint: String,
+            id: {
                 type: String,
                 default: function () {
                     return Functions.generateID("input");
@@ -57,7 +57,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     @import "src/colors.scss";
 
     .apos-input {
@@ -68,7 +68,7 @@
             position: relative;
             color: $darkgray;
 		    border: 1px solid $lightgray;
-            border-radius: 3px;
+            border-radius: 4px;
             padding: 8px 16px;
             z-index: 1;
         }
