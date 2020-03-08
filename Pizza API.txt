@@ -5,6 +5,7 @@ Base: /api/v1
 POST	/auth						Login
 
 GET		/orders						List all active orders
+PUT		/orders						Create a new order
 
 GET		/orders/:id					Get a specific order
 PATCH 								Edit a specific order
