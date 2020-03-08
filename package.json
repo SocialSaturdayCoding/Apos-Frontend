@@ -16,7 +16,7 @@
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.14.5",
+    "css-loader": "^3.4.2",
     "file-loader": "^2.0.0",
     "imports-loader": "^0.6.5",
     "moment": "^2.24.0",
