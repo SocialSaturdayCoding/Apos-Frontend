@@ -5,8 +5,8 @@
 <template>
     <div class="apos-input"
          :class="{ 'labeltop': labelOnTop }">
-        <label :for="Id">{{ InputHint }}</label>
-        <input :id="Id"
+        <label for="testid">{{ InputHint }}</label>
+        <input id="testid"
                @focus=onFocus
                @blur=onBlur
                @change=onChange
@@ -15,8 +15,6 @@
 </template>
 
 <script>
-    import Functions from "../lib/Functions";
-
     export default {
         name: 'AposInput',
         
@@ -29,13 +27,7 @@
         },
 
         props: {
-            InputHint: String,
-            Id: {
-                type: String,
-                default: function () {
-                    return Functions.generateID("input");
-                }
-            }
+            InputHint: String
         },
         
         computed: {
