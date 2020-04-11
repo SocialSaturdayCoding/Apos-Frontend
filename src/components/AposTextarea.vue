@@ -3,21 +3,27 @@
     @date 2020-02-23
 -->
 <template>
-    <div class="apos-input"
+    <div class="apos-textarea"
          :class="{ 'labeltop': labelOnTop }">
-        <label for="testid">{{ InputHint }}</label>
-        <input id="testid"
+        <label :for="id">{{ inputHint }}</label>
+        <textarea :id="id"
                @focus=onFocus
                @blur=onBlur
                @change=onChange
+               @keydown=onKeyDown
+               @keyup=onKeyUp
+               ref="textarea"
                v-model="value">
+        </textarea>
     </div>
 </template>
 
 <script>
+    import Functions from "../lib/Functions";
+
     export default {
-        name: 'AposInput',
-        
+        name: 'AposTextarea',
+
         data() {
             return {
                 active: false,
@@ -27,15 +33,31 @@
         },
 
         props: {
-            InputHint: String
+            inputHint: String,
+            minHeight: {
+                type: Number,
+                default: 0
+            },
+            id: {
+                type: String,
+                default: function () {
+                    return Functions.generateID("input");
+                }
+            }
         },
-        
+
         computed: {
             labelOnTop()
-                    {return (this.active || this.filled)}
+                {return (this.active || this.filled)}
         },
-        
+
         methods: {
+            resize(){
+                let textarea = this.$refs.textarea;
+
+                textarea.style.height = 'auto';
+                textarea.style.height = Math.max(this.minHeight, textarea.scrollHeight) + 'px';
+            },
             onFocus(){
                 this.active = true
             },
@@ -43,50 +65,62 @@
                 this.active = false
             },
             onChange(){
-                this.filled = !(this.value.length === 0)
+                this.filled = !(this.value.length === 0);
+                this.resize();
+            },
+            onKeyDown(){
+                this.resize();
+            },
+            onKeyUp(){
+                this.resize();
             }
+        },
+
+        mounted() {
+            this.resize();
         }
     }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     @import "src/colors.scss";
 
-    .apos-input {
+    .apos-textarea {
         position: relative;
         display: inline-block;
 
-        input {
+        textarea {
             position: relative;
             color: $darkgray;
-		    border: 1px solid $lightgray;
-            border-radius: 3px;
+            font-family: "Source Sans Pro", sans-serif;
+            border: 1px solid $lightgray;
+            border-radius: 4px;
             padding: 8px 16px;
+            resize: none;
+            overflow: hidden;
             z-index: 1;
         }
 
         label {
             position: absolute;
-            top: 50%;
+            top: 8px;
             left: 16px;
-            max-width: 80%;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-            
+
             z-index: 2;
-            transform: translateY(-50%);
 
             color: $darkgray;
             transition: all 0.2s ease;
         }
 
-        input:focus {
+        textarea:focus {
             outline: none;
         }
     }
-    
-    .apos-input.labeltop{
+
+    .apos-textarea.labeltop{
         label {
             top: 0%;
             transform: translateY(-50%);
