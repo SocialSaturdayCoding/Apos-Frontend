@@ -6,6 +6,7 @@ POST	/auth						Login
 POST  /signup         Registration
 
 GET		/orders						List all active orders
+GET		/orders/active    List all active orders
 PUT		/orders						Create a new order
 
 GET		/orders/:id					Get a specific order
