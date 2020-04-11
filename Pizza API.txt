@@ -3,6 +3,7 @@
 Base: /api/v1
 
 POST	/auth						Login
+POST  /signup         Registration
 
 GET		/orders						List all active orders
 PUT		/orders						Create a new order
@@ -12,6 +13,7 @@ PATCH 								Edit a specific order
 DELETE 								Delete a specific order#
 
 PUT 	/orders/:id/items			Create an item for an order
+GET 	/orders/:id/items			List all items for order
 
 GET 	/orders/:id/items/:itemID	Get a specific item
 PATCH								Edit a specific item
