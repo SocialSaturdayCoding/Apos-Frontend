@@ -7,9 +7,9 @@
          :class="{ 'labeltop': labelOnTop }">
         <label :for="id">{{ inputHint }}</label>
         <input :id="id"
-               @focus=onFocus
-               @blur=onBlur
-               @change=onChange
+               @focus="onFocus"
+               @blur="onBlur"
+               @change="onChange"
                v-model="value">
     </div>
 </template>
@@ -29,7 +29,11 @@
         },
 
         props: {
-            inputHint: String,
+            inputHint: {
+                type: String,
+                required: true,
+                default: null
+            },
             id: {
                 type: String,
                 default: function () {
@@ -39,8 +43,9 @@
         },
         
         computed: {
-            labelOnTop()
-                    {return (this.active || this.filled)}
+            labelOnTop() {
+                return (this.active || this.filled)
+            }
         },
         
         methods: {
@@ -51,7 +56,7 @@
                 this.active = false
             },
             onChange(){
-                this.filled = !(this.value.length === 0)
+                this.filled = this.value.length !== 0
             }
         }
     }
