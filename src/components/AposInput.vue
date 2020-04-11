@@ -5,8 +5,8 @@
 <template>
     <div class="apos-input"
          :class="{ 'labeltop': labelOnTop }">
-        <label :for="Id">{{ InputHint }}</label>
-        <input :id="Id"
+        <label :for="id">{{ inputHint }}</label>
+        <input :id="id"
                @focus=onFocus
                @blur=onBlur
                @change=onChange
